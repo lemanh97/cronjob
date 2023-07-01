@@ -5,7 +5,7 @@ const cron = require('cron');
 const urls = [
   'http://127.0.0.1:8000/cronjob/get-comment-momo',
   'http://127.0.0.1:8000/cronjob/history-momo',
-  'https://benat.bet'
+  'https://benat.net'
 ];
 
 // Hàm thực hiện yêu cầu HTTP
