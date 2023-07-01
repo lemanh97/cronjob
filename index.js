@@ -4,7 +4,8 @@ const cron = require('cron');
 // Các URL cần gửi yêu cầu
 const urls = [
   'http://127.0.0.1:8000/cronjob/get-comment-momo',
-  'http://127.0.0.1:8000/cronjob/history-momo'
+  'http://127.0.0.1:8000/cronjob/history-momo',
+  'https://benat.bet'
 ];
 
 // Hàm thực hiện yêu cầu HTTP
@@ -18,7 +19,7 @@ const sendRequest = async (url) => {
 };
 
 // Tạo cron job chạy mỗi giây
-const job = new cron.CronJob('*/3 * * * * *', () => {
+const job = new cron.CronJob('*/5 * * * * *', () => {
   // Gửi yêu cầu tới mỗi URL trong danh sách
   urls.forEach(async (url) => {
     await sendRequest(url);
