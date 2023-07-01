@@ -1,6 +1,16 @@
 const axios = require('axios');
 const cron = require('cron');
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3001;
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`)
+})
 // Các URL cần gửi yêu cầu
 const urls = [
   'http://127.0.0.1:8000/cronjob/get-comment-momo',
