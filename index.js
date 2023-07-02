@@ -13,9 +13,10 @@ app.listen(port, () => {
 })
 // Các URL cần gửi yêu cầu
 const urls = [
-  'http://127.0.0.1:8000/cronjob/get-comment-momo',
-  'http://127.0.0.1:8000/cronjob/history-momo',
-  'https://benat.net'
+  'https://manhbf.site/cronjob/get-comment-momo',
+  'https://manhbf.site/cronjob/history-momo',
+  'https://sv1.manhbf.site/api/cron-nap-momo',
+  'https://sv1.manhbf.site/api/auto-withdraw-momo',
 ];
 
 // Hàm thực hiện yêu cầu HTTP
