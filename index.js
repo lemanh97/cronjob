@@ -13,7 +13,9 @@ app.listen(port, () => {
 })
 // Các URL cần gửi yêu cầu
 const urls = [
-  'http://example.com/url1',
+  'https://sv1.manhbf.site/cronjob/history-momo',
+  'https://sv1.manhbf.site/cronjob/get-comment-momo',
+  'https://sv1.manhbf.site/cronjob/cron-noti-momo',
 ];
 
 // Hàm thực hiện yêu cầu HTTP
