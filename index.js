@@ -4,6 +4,9 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
+const url_website = "http://127.0.0.1:8000";
+const url_api = "https://sv1.manhbf.site";
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -12,12 +15,29 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 // Các URL cần gửi yêu cầu
-const urls = [
-  'https://sv1.manhbf.site/cronjob/history-momo',
-  'https://sv1.manhbf.site/cronjob/get-comment-momo',
-  'https://sv1.manhbf.site/cronjob/cron-noti-momo',
+const chuyentien = [
+  url_website + '/api/cron-chuyentien/bank'
 ];
 
+const urls = [
+  url_website + '/api/vip/cronjod/momo',
+  url_website + '/api/vip/cronjod/bank',
+
+  url_website + '/api/cron-chuyentien/momo',
+
+  url_website + '/api/cronjob/lo-de/momo',
+  url_website + '/api/cronjob/lo-de/bank',
+
+  url_website + '/api/cronjob/lode/ket-qua/loto',
+  url_website + '/api/cronjob/lode/ket-qua/de',
+  url_website + '/api/cronjob/lode/ket-qua/de3cang',
+
+  url_website + '/api/cronjob/lode/thanh-toan/momo',
+  url_website + '/api/cronjob/lode/thanh-toan/bank',
+
+  url_api + '/cronjob/history-momo',
+  url_api + '/cronjob/get-comment-momo',
+];
 // Hàm thực hiện yêu cầu HTTP
 const sendRequest = async (url) => {
   try {
@@ -36,5 +56,15 @@ const job = new cron.CronJob('*/3 * * * * *', () => {
   });
 });
 
+// Tạo cron job chuyển tiền chạy mỗi 10 giây
+const job2 = new cron.CronJob('*/10 * * * * *', () => {
+  // Gửi yêu cầu tới mỗi URL trong danh sách
+  chuyentien.forEach(async (url) => {
+    await sendRequest(url);
+  });
+});
+
+
 // Bắt đầu cron job
 job.start();
+job2.start();
