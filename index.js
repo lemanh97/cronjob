@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
-const url_website = "http://127.0.0.1:8000";
+const url_website = "https://gachthe247.tk";
 const url_api = "https://sv1.manhbf.site";
 
 app.get('/', (req, res) => {
