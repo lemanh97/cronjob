@@ -4,7 +4,6 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
-const url_website = "https://gachthe247.tk";
 const url_api = "https://sv1.manhbf.site";
 
 app.get('/', (req, res) => {
@@ -14,27 +13,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
-// Các URL cần gửi yêu cầu
-const chuyentien = [
-  url_website + '/api/cron-chuyentien/bank'
-];
 
 const urls = [
-  url_website + '/api/vip/cronjod/momo',
-  url_website + '/api/vip/cronjod/bank',
-
-  url_website + '/api/cron-chuyentien/momo',
-
-  url_website + '/api/cronjob/lo-de/momo',
-  url_website + '/api/cronjob/lo-de/bank',
-
-  url_website + '/api/cronjob/lode/ket-qua/loto',
-  url_website + '/api/cronjob/lode/ket-qua/de',
-  url_website + '/api/cronjob/lode/ket-qua/de3cang',
-
-  url_website + '/api/cronjob/lode/thanh-toan/momo',
-  url_website + '/api/cronjob/lode/thanh-toan/bank',
-
   url_api + '/cronjob/history-momo',
   url_api + '/cronjob/get-comment-momo',
 ];
@@ -49,7 +29,7 @@ const sendRequest = async (url) => {
 };
 
 // Tạo cron job chạy mỗi 3 giây
-const job = new cron.CronJob('*/3 * * * * *', () => {
+const job = new cron.CronJob('*/5 * * * * *', () => {
   // Gửi yêu cầu tới mỗi URL trong danh sách
   urls.forEach(async (url) => {
     await sendRequest(url);
