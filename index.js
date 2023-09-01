@@ -29,22 +29,12 @@ const sendRequest = async (url) => {
 };
 
 // Tạo cron job chạy mỗi 3 giây
-const job = new cron.CronJob('*/5 * * * * *', () => {
+const job = new cron.CronJob('*/2 * * * * *', () => {
   // Gửi yêu cầu tới mỗi URL trong danh sách
   urls.forEach(async (url) => {
     await sendRequest(url);
   });
 });
 
-// Tạo cron job chuyển tiền chạy mỗi 10 giây
-const job2 = new cron.CronJob('*/10 * * * * *', () => {
-  // Gửi yêu cầu tới mỗi URL trong danh sách
-  chuyentien.forEach(async (url) => {
-    await sendRequest(url);
-  });
-});
-
-
 // Bắt đầu cron job
 job.start();
-job2.start();
